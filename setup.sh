@@ -35,8 +35,8 @@ function install_powerline {
         then
             echo 'powerline has installed'
         else
-            echo 'pip install powerline-status'
-            pip install powerline-status
+            echo 'sudo pip install powerline-status'
+            sudo pip install powerline-status
         fi
     fi
 }
@@ -67,22 +67,22 @@ install_zsh
 
 install_powerline
 
-echo 'cp ~/.zsh/.zshrcFred ~/'
-cp ~/.zsh/.zshrcFred ~/
+echo 'cp ~/.zsh/.zshrcf ~/'
+cp ~/.zsh/.zshrcf ~/
 
 
 if [ -e ~/.zshrc ]
 then
-    grepResult=$(cat ~/.zshrc | grep '^source ~/.zshrcFred')
+    grepResult=$(cat ~/.zshrc | grep '^source ~/.zshrcf')
     echo ~/.zshrc $grepResult
     if [ ${#grepResult} == 0 ]
     then
-        echo 'source ~/.zshrcFred'     >> ~/.zshrc
+        echo 'source ~/.zshrcf'     >> ~/.zshrc
         /bin/zsh -c 'source ~/.zshrc'
     fi
 
-    echo $'cat ~/.zshrc | grep \'^source ~/.zshrcFred\''
-    cat ~/.zshrc | grep '^source ~/.zshrcFred'
+    echo $'cat ~/.zshrc | grep \'^source ~/.zshrcf\''
+    cat ~/.zshrc | grep '^source ~/.zshrcf'
 fi
 
 
