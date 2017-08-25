@@ -1,0 +1,12 @@
+if which pip >/dev/null
+then
+    powerline_zsh=$(pip show powerline-status | awk '/Location:/{print $2 "/powerline/bindings/zsh/powerline.zsh"}')
+    if [ -e $powerline_zsh ]
+    then
+        . $powerline_zsh
+    fi
+fi
+
+
+
+
