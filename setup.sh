@@ -22,6 +22,15 @@ function install_zsh {
             echo 'brew install zsh zsh-completions'
             brew install zsh zsh-completions
         fi
+
+        echo 'chsh -s $(which zsh)'
+        chsh -s $(which zsh)
+
+        echo 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+        echo 'source ~/.zshrc'
+        source ~/.zshrc
     fi
 }
 
@@ -35,8 +44,8 @@ function install_powerline {
         then
             echo 'powerline has installed'
         else
-            echo 'sudo pip install powerline-status'
-            sudo pip install powerline-status
+            echo 'sudo bash -c "$(which pip) install powerline-status"'
+            sudo bash -c "$(which pip) install powerline-status"
         fi
     fi
 }
