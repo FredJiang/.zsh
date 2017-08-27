@@ -22,7 +22,11 @@ function install_zsh {
             echo 'brew install zsh zsh-completions'
             brew install zsh zsh-completions
         fi
+    fi
 
+
+    if [ ! $SHELL == '/bin/zsh' ]
+    then
         echo 'chsh -s $(which zsh)'
         chsh -s $(which zsh)
 
