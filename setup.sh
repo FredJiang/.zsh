@@ -25,8 +25,10 @@ function install_zsh {
     fi
 
 
-    if [ ! $SHELL == '/bin/zsh' ]
+    if [ $SHELL == '/bin/zsh' ] || [ $SHELL == '/user/bin/zsh' ]
     then
+        echo '$SHELL' $SHELL
+    else
         echo 'chsh -s $(which zsh)'
         chsh -s $(which zsh)
 
