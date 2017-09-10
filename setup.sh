@@ -1,5 +1,21 @@
 #! /bin/bash
 
+echo 'git pull'
+git pull
+
+
+
+echo 'git submodule init'
+git submodule init
+
+
+
+echo 'git submodule update'
+git submodule update
+
+
+
+
 function install_zsh {
     if which zsh > /dev/null
     then
