@@ -1,3 +1,39 @@
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+
+source ~/.zsh/mypackages/antigen/antigen.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+# antigen bundle heroku
+# antigen bundle pip
+# antigen bundle lein
+# antigen bundle command-not-found
+antigen bundle man
+antigen bundle colorize
+antigen bundle colored-man-pages
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Load the theme.
+antigen theme robbyrussell
+
+# Tell Antigen that you're done.
+antigen apply
+
+
+# plugins=(git man colorize colored-man-pages)
+
+
+
+
+
+
 if which pip >/dev/null
 then
     powerline_zsh=$(pip show powerline-status | awk '/Location:/{print $2 "/powerline/bindings/zsh/powerline.zsh"}')

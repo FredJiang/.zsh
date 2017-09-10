@@ -50,8 +50,12 @@ function install_powerline {
         then
             echo 'powerline has installed'
         else
+            # echo 'pip install powerline-status'
+            # pip install powerline-status
+
             echo 'sudo bash -c "$(which pip) install powerline-status"'
             sudo -H bash -c "$(which pip) install powerline-status"
+            # sudo -H bash -c "$(which pip) uninstall powerline-status"
         fi
     fi
 }

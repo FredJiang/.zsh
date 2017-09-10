@@ -1,0 +1,3 @@
+[submodule "mypackages/antigen"]
+	path = mypackages/antigen
+	url = https://github.com/zsh-users/antigen.git
