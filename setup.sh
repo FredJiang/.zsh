@@ -1,58 +1,66 @@
 #! /bin/bash
 
-echo 'git pull'
-git pull
+
+function echoCo {
+    echo -e "\033[32m$@\033[0m"
+}
 
 
-
-echo 'git submodule init'
-git submodule init
-
-
-
-echo 'git submodule update'
-git submodule update
+function echoMe {
+    echo -e "\033[35m$@\033[0m"
+}
 
 
+echoCo 'git pull'
+        git pull
+
+
+echoCo 'git submodule init'
+        git submodule init
+
+
+echoCo 'git submodule update'
+        git submodule update
 
 
 function install_zsh {
     if which zsh > /dev/null
     then
-        echo 'zsh has installed'
+        echoMe 'zsh has installed'
     else
         if which apt-get > /dev/null
         then
-            echo 'sudo apt-get install -y zsh'
-            sudo apt-get install -y zsh
+            echoCo 'sudo apt-get install -y zsh'
+                    sudo apt-get install -y zsh
         fi
 
         if which yum > /dev/null
         then
-            echo 'sudo yum install -y zsh'
-            sudo yum install -y zsh
+            echoCo 'sudo yum install -y zsh'
+                    sudo yum install -y zsh
         fi
 
         if which brew >/dev/null
         then
-            echo 'brew install zsh zsh-completions'
-            brew install zsh zsh-completions
+            echoCo 'brew install zsh zsh-completions'
+                    brew install zsh zsh-completions
         fi
     fi
 
-    echo '$SHELL' $SHELL
+    echoMe '$SHELL' $SHELL
+
     if [ $SHELL == '/bin/zsh' ] || [ $SHELL == '/usr/bin/zsh' ]
     then
-        echo '$SHELL' $SHELL
+        echoMe '$SHELL' $SHELL
     else
-        echo 'chsh -s $(which zsh)'
-        chsh -s $(which zsh)
+        echoCo 'chsh -s $(which zsh)'
+                chsh -s $(which zsh)
 
-        echo 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+        echoCo 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
+                sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-        echo 'source ~/.zshrc'
-        source ~/.zshrc
+        echoCo 'source ~/.zshrc'
+                source ~/.zshrc
     fi
 }
 
@@ -60,64 +68,77 @@ function install_zsh {
 function install_powerline {
     if ! which pip > /dev/null
     then
-        echo 'pip has not installed'
+        echoMe 'pip has not installed'
     else
         if which powerline > /dev/null
         then
-            echo 'powerline has installed'
+            echoMe 'powerline has installed'
         else
-            # echo 'pip install powerline-status'
-            # pip install powerline-status
+            # echoCo 'pip install powerline-status'
+            #         pip install powerline-status
 
-            echo 'sudo bash -c "$(which pip) install powerline-status"'
-            sudo -H bash -c "$(which pip) install powerline-status"
-            # sudo -H bash -c "$(which pip) uninstall powerline-status"
+            echoCo 'sudo bash -c "$(which pip) install powerline-status"'
+                    sudo -H bash -c "$(which pip) install powerline-status"
+            
+            # echoCo 'sudo -H bash -c "$(which pip) uninstall powerline-status"'
+            #         sudo -H bash -c "$(which pip) uninstall powerline-status"
         fi
     fi
 }
 
 
+echoCo 'cd ~/.zsh'
+        cd ~/.zsh
 
-echo 'cd ~/.zsh'
-cd ~/.zsh
 
 case "$OSTYPE" in
   solaris*)
-    echo "SOLARIS" ;;
+    echoMe "SOLARIS"
+    ;;
   darwin*)
-    echo "OSX"
+    echoMe "OSX"
     ;; 
   linux*)
-    echo "LINUX"
+    echoMe "LINUX"
     ;;
   bsd*) 
-      echo "BSD" ;;
+    echoMe "BSD"
+    ;;
   msys*) 
-     echo "WINDOWS" ;;
+    echoMe "WINDOWS"
+     ;;
   *)
-    echo "unknown: $OSTYPE" ;;
+    echoMe "unknown: $OSTYPE"
+    ;;
 esac
+
 
 install_zsh
 
+
 install_powerline
 
-echo 'cp ~/.zsh/.zshrcf ~/'
-cp ~/.zsh/.zshrcf ~/
+
+echoCo 'cp ~/.zsh/.zshrcf ~/'
+        cp ~/.zsh/.zshrcf ~/
 
 
 if [ -e ~/.zshrc ]
 then
     grepResult=$(cat ~/.zshrc | grep '^source ~/.zshrcf')
-    echo ~/.zshrc $grepResult
+    echoMe ~/.zshrc $grepResult
+
     if [ ${#grepResult} == 0 ]
     then
-        echo 'source ~/.zshrcf'     >> ~/.zshrc
-        /bin/zsh -c 'source ~/.zshrc'
+        echoCo "echo 'source ~/.zshrcf' >> ~/.zshrc"
+                echo 'source ~/.zshrcf' >> ~/.zshrc
+        echoCo "/bin/zsh -c 'source ~/.zshrc'"
+                /bin/zsh -c 'source ~/.zshrc'
     fi
 
-    echo $'cat ~/.zshrc | grep \'^source ~/.zshrcf\''
-    cat ~/.zshrc | grep '^source ~/.zshrcf'
+    echoCo "cat ~/.zshrc | grep '^source ~/.zshrcf'"
+            cat ~/.zshrc | grep '^source ~/.zshrcf'
+
 fi
 
 
