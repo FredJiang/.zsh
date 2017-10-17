@@ -63,9 +63,31 @@ function install_zsh {
 }
 
 
+function install_pip {
+    if which pip > /dev/null; then
+        echoMe 'pip has not installed'
+    else
+        if which apt-get > /dev/null; then
+            echoCo 'sudo apt-get install -y python-setuptools python-dev build-essential'
+                    sudo apt-get install -y python-setuptools python-dev build-essential
+
+            echoCo 'sudo easy_install pip'
+                    sudo easy_install pip
+        fi
+
+        if which yum > /dev/null; then
+        fi
+
+        if which brew >/dev/null; then
+        fi
+    fi
+}
+
 function install_powerline {
     if ! which pip > /dev/null; then
         echoEr 'pip has not installed'
+
+        install_pip
     else
         if which powerline > /dev/null; then
             echoMe 'powerline has installed'
