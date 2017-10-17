@@ -11,6 +11,11 @@ function echoMe {
 }
 
 
+function echoEr {
+    echo -e "\033[31m$@\033[0m"
+}
+
+
 echoCo 'git pull'
         git pull
 
@@ -60,7 +65,7 @@ function install_zsh {
 
 function install_powerline {
     if ! which pip > /dev/null; then
-        echoMe 'pip has not installed'
+        echoEr 'pip has not installed'
     else
         if which powerline > /dev/null; then
             echoMe 'powerline has installed'
