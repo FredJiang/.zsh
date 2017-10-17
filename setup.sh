@@ -75,11 +75,11 @@ function install_pip {
                     sudo easy_install pip
         fi
 
-        if which yum > /dev/null; then
-        fi
+        # if which yum > /dev/null; then
+        # fi
 
-        if which brew >/dev/null; then
-        fi
+        # if which brew >/dev/null; then
+        # fi
     fi
 }
 
