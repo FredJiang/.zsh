@@ -137,6 +137,21 @@ install_zsh
 install_powerline
 
 
+function install_autojump {
+    if which autojump > /dev/null; then
+        echoMe 'autojump has installed'
+    else
+        echoCo 'cd ~/.zsh/mypackages/autojump'
+                cd ~/.zsh/mypackages/autojump
+        echoCo './install.py'
+                ./install.py
+    fi
+}
+
+
+install_autojump
+
+
 echoCo 'cp ~/.zsh/.zshrcf ~/'
         cp ~/.zsh/.zshrcf ~/
 
@@ -155,7 +170,6 @@ if [ -e ~/.zshrc ]; then
 
     echoCo "cat ~/.zshrc | grep '^source ~/.zshrcf'"
             cat ~/.zshrc | grep '^source ~/.zshrcf'
-
 fi
 
 

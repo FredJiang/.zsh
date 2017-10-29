@@ -2,6 +2,11 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
+
+autoload -U compinit && compinit -u
+
+
 source ~/.zsh/mypackages/antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
@@ -16,6 +21,7 @@ antigen bundle git
 antigen bundle man
 antigen bundle colorize
 antigen bundle colored-man-pages
+antigen bundle autojump
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting

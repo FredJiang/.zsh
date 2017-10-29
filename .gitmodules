@@ -1,3 +1,6 @@
 [submodule "mypackages/antigen"]
 	path = mypackages/antigen
 	url = https://github.com/zsh-users/antigen.git
+[submodule "mypackages/autojump"]
+	path = mypackages/autojump
+	url = https://github.com/wting/autojump.git
