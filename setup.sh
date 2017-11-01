@@ -16,6 +16,28 @@ function echoEr {
 }
 
 
+case "$OSTYPE" in
+  solaris*)
+    echoMe "SOLARIS"
+    ;;
+  darwin*)
+    echoMe "OSX"
+    ;; 
+  linux*)
+    echoMe "LINUX"
+    ;;
+  bsd*) 
+    echoMe "BSD"
+    ;;
+  msys*) 
+    echoMe "WINDOWS"
+     ;;
+  *)
+    echoMe "unknown: $OSTYPE"
+    ;;
+esac
+
+
 echoCo 'git pull'
         git pull
 
@@ -42,7 +64,7 @@ function install_zsh {
                     sudo yum install -y zsh
         fi
 
-        if which brew >/dev/null; then
+        if which brew > /dev/null; then
             echoCo 'brew install zsh zsh-completions'
                     brew install zsh zsh-completions
         fi
@@ -63,9 +85,12 @@ function install_zsh {
 }
 
 
+install_zsh
+
+
 function install_pip {
     if which pip > /dev/null; then
-        echoMe 'pip has not installed'
+        echoMe 'pip has installed'
     else
         if which apt-get > /dev/null; then
             echoCo 'sudo apt-get install -y python-setuptools python-dev build-essential'
@@ -78,60 +103,29 @@ function install_pip {
         # if which yum > /dev/null; then
         # fi
 
-        # if which brew >/dev/null; then
+        # if which brew > /dev/null; then
         # fi
     fi
 }
 
+
+install_pip
+
+
 function install_powerline {
-    if ! which pip > /dev/null; then
-        echoEr 'pip has not installed'
-
-        install_pip
+    if which powerline > /dev/null; then
+        echoMe 'powerline has installed'
     else
-        if which powerline > /dev/null; then
-            echoMe 'powerline has installed'
-        else
-            # echoCo 'pip install powerline-status'
-            #         pip install powerline-status
+        # echoCo 'pip install powerline-status'
+        #         pip install powerline-status
 
-            echoCo 'sudo -H bash -c "$(which pip) install powerline-status"'
-                    sudo -H bash -c "$(which pip) install powerline-status"
-            
-            # echoCo 'sudo -H bash -c "$(which pip) uninstall powerline-status"'
-            #         sudo -H bash -c "$(which pip) uninstall powerline-status"
-        fi
+        echoCo 'sudo -H bash -c "$(which pip) install powerline-status"'
+                sudo -H bash -c "$(which pip) install powerline-status"
+        
+        # echoCo 'sudo -H bash -c "$(which pip) uninstall powerline-status"'
+        #         sudo -H bash -c "$(which pip) uninstall powerline-status"
     fi
 }
-
-
-echoCo 'cd ~/.zsh'
-        cd ~/.zsh
-
-
-case "$OSTYPE" in
-  solaris*)
-    echoMe "SOLARIS"
-    ;;
-  darwin*)
-    echoMe "OSX"
-    ;; 
-  linux*)
-    echoMe "LINUX"
-    ;;
-  bsd*) 
-    echoMe "BSD"
-    ;;
-  msys*) 
-    echoMe "WINDOWS"
-     ;;
-  *)
-    echoMe "unknown: $OSTYPE"
-    ;;
-esac
-
-
-install_zsh
 
 
 install_powerline
@@ -171,6 +165,3 @@ if [ -e ~/.zshrc ]; then
     echoCo "cat ~/.zshrc | grep '^source ~/.zshrcf'"
             cat ~/.zshrc | grep '^source ~/.zshrcf'
 fi
-
-
-
