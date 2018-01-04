@@ -50,6 +50,7 @@ then
     fi
 fi
 
+. ~/.myshell/mypackages/hhighlighter/h.sh
 
 
 
