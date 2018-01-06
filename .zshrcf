@@ -52,6 +52,3 @@ fi
 
 . ~/.myshell/mypackages/hhighlighter/h.sh
 
-# sudo easy_install Pygments
-alias fcat="pygmentize -g"
-
