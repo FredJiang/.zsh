@@ -146,22 +146,18 @@ function install_autojump {
 install_autojump
 
 
-echoCo 'cp ~/.zsh/.zshrcf ~/'
-        cp ~/.zsh/.zshrcf ~/
-
-
 if [ -e ~/.zshrc ]; then
-    echoCo      "cat ~/.zshrc | grep '^source ~/.zshrcf'"
-    grepResult=$(cat ~/.zshrc | grep '^source ~/.zshrcf')
+    echoCo      "cat ~/.zshrc | grep '^source ~/.zsh/.zshrcf'"
+    grepResult=$(cat ~/.zshrc | grep '^source ~/.zsh/.zshrcf')
     echo $grepResult
 
     if [ ${#grepResult} == 0 ]; then
-        echoCo "echo 'source ~/.zshrcf' >> ~/.zshrc"
-                echo 'source ~/.zshrcf' >> ~/.zshrc
+        echoCo "echo 'source ~/.zsh/.zshrcf' >> ~/.zshrc"
+                echo 'source ~/.zsh/.zshrcf' >> ~/.zshrc
         echoCo "/bin/zsh -c 'source ~/.zshrc'"
                 /bin/zsh -c 'source ~/.zshrc'
     fi
 
-    echoCo "cat ~/.zshrc | grep '^source ~/.zshrcf'"
-            cat ~/.zshrc | grep '^source ~/.zshrcf'
+    echoCo "cat ~/.zshrc | grep '^source ~/.zsh/.zshrcf'"
+            cat ~/.zshrc | grep '^source ~/.zsh/.zshrcf'
 fi
