@@ -1,5 +1,6 @@
 #! /bin/bash
 
+# PS1='[$USER@$HOSTNAME %c]$ '
 
 function echoCo {
     echo -e "\033[32m$@\033[0m"
