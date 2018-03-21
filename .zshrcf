@@ -3,6 +3,10 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 
+# Setting ag as the default source for fzf
+export FZF_DEFAULT_COMMAND='ag -g ""'
+
+
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
 
 autoload -U compinit && compinit -u
