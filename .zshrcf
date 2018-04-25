@@ -9,40 +9,8 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
 
+
 autoload -U compinit && compinit -u
-
-
-source ~/.zsh/mypackages/antigen/antigen.zsh
-
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-# antigen bundle heroku
-# antigen bundle pip
-# antigen bundle lein
-# antigen bundle command-not-found
-antigen bundle man
-antigen bundle colorize
-antigen bundle colored-man-pages
-antigen bundle autojump
-
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-# Load the theme.
-antigen theme robbyrussell
-
-# Tell Antigen that you're done.
-antigen apply
-
-
-# plugins=(git man colorize colored-man-pages)
-
-
-
-
 
 
 if which pip >/dev/null
