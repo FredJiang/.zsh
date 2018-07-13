@@ -36,6 +36,9 @@ export FZF_DEFAULT_COMMAND='ag \
 autoload -U compinit && compinit -u
 
 
+source ~/.zsh/.zshrcantigen
+
+
 if which pip >/dev/null
 then
     powerline_zsh=$(pip show powerline-status | awk '/Location:/{print $2 "/powerline/bindings/zsh/powerline.zsh"}')
