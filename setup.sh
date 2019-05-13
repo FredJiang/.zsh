@@ -76,7 +76,7 @@ function install_zsh {
     else
         echoCo 'chsh -s $(which zsh)'
                 chsh -s $(which zsh)
-
+         # sudo chsh -s $(which zsh) username # 如果 chsh -s $(which zsh) 失败了的话
         echoCo 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
                 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 

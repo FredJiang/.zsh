@@ -9,25 +9,14 @@ export LANG=en_US.UTF-8
 # 可以在 .bashrc 中加入 export LC_ALL=C
 
 
-alias ag='ag \
---ignore Applications \
---ignore Library \
---ignore Music \
---ignore Pictures \
---ignore vendor \
---ignore "workspaceC/depot_tools" \
-'
+alias ag='                  ag --ignore Applications --ignore Library --ignore Music --ignore Pictures --ignore vendor --ignore node_modules --ignore coverage --ignore go --ignore "workspaceC/depot_tools"'
 
 
 # Setting ag as the default source for fzf
-export FZF_DEFAULT_COMMAND='ag \
---ignore Applications \
---ignore Library \
---ignore Music \
---ignore Pictures \
---ignore vendor \
---ignore "workspaceC/depot_tools" \
--g ""'
+export FZF_DEFAULT_COMMAND='ag --ignore Applications --ignore Library --ignore Music --ignore Pictures --ignore vendor --ignore node_modules --ignore coverage --ignore go --ignore "workspaceC/depot_tools" -g ""'
+
+
+export BAT_PAGER="less -RF"
 
 
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
@@ -48,4 +37,5 @@ then
     fi
 fi
 
+# yum install ack
 . ~/.myshell/mypackages/hhighlighter/h.sh
