@@ -53,7 +53,7 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(git)
 
-# source ~/.zsh/.zshrcantigen
+source ~/.zsh/.zshrcantigen
 
 source $ZSH/oh-my-zsh.sh
 
