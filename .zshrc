@@ -1,3 +1,31 @@
+#↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧ added by fred
+source ~/.zsh/mypackages/antigen/antigen.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+# antigen bundle heroku
+# antigen bundle pip
+# antigen bundle lein
+# antigen bundle command-not-found
+antigen bundle man
+antigen bundle colorize
+antigen bundle colored-man-pages
+antigen bundle autojump
+antigen bundle mvn
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Load the theme.
+antigen theme robbyrussell
+
+# Tell Antigen that you're done.
+antigen apply
+#↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -53,8 +81,6 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(git)
 
-source ~/.zsh/.zshrcantigen
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -86,10 +112,39 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export EDITOR="vim"
+#↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧ added by fred
+# export LC_ALL=C
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+# /bin/bash: warning: setlocale: LC_ALL: cannot change locale (en_US.utf-8)
+# /bin/sh: warning: setlocale: LC_ALL: cannot change locale (en_US.utf-8)
+# perl: warning: Falling back to the standard locale ("C").
+# 可以在 .bashrc 中加入 export LC_ALL=C
 
+export EDITOR="vim"
+export BAT_PAGER="less -RF"
+
+alias ag='                  ag --ignore Applications --ignore build --ignore coverage --ignore go --ignore Library --ignore Music --ignore node_modules --ignore Pictures --ignore Pods --ignore target --ignore vendor --ignore "workspaceC/depot_tools"'
+# Setting ag as the default source for fzf
+export FZF_DEFAULT_COMMAND='ag --ignore Applications --ignore build --ignore coverage --ignore go --ignore Library --ignore Music --ignore node_modules --ignore Pictures --ignore Pods --ignore target --ignore vendor --ignore "workspaceC/depot_tools" -g ""'
+
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
+
+autoload -U compinit && compinit -u
+
+if which pip >/dev/null
+then
+    powerline_zsh=$(pip show powerline-status | awk '/Location:/{print $2 "/powerline/bindings/zsh/powerline.zsh"}')
+    if [ -e $powerline_zsh ]
+    then
+        . $powerline_zsh
+    fi
+fi
+
+. ~/.myshell/mypackages/hhighlighter/h.sh # yum install ack
 source ~/.bash_profile
-source ~/.zsh/.zshrcf
+. ~/.zsh/mypackages/maven-bash-completion/bash_completion.bash
 source ~/.tmuxinator.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+#↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥

@@ -6,11 +6,9 @@ function echoCo {
     echo -e "\033[32m$@\033[0m"
 }
 
-
 function echoMe {
     echo -e "\033[35m$@\033[0m"
 }
-
 
 function echoEr {
     echo -e "\033[31m$@\033[0m"
@@ -84,8 +82,6 @@ function install_zsh {
                 source ~/.zshrc
     fi
 }
-
-
 install_zsh
 
 
@@ -108,8 +104,6 @@ function install_pip {
         # fi
     fi
 }
-
-
 install_pip
 
 
@@ -127,8 +121,6 @@ function install_powerline {
         #         sudo -H bash -c "$(which pip) uninstall powerline-status"
     fi
 }
-
-
 install_powerline
 
 
@@ -142,23 +134,27 @@ function install_autojump {
                 ./install.py
     fi
 }
-
-
 install_autojump
 
 
-if [ -e ~/.zshrc ]; then
-    echoCo      "cat ~/.zshrc | grep '^source ~/.zsh/.zshrcf'"
-    grepResult=$(cat ~/.zshrc | grep '^source ~/.zsh/.zshrcf')
-    echo $grepResult
+# if [ -e ~/.zshrc ]; then
+#     echoCo      "cat ~/.zshrc | grep '^source ~/.zsh/.zshrcf'"
+#     grepResult=$(cat ~/.zshrc | grep '^source ~/.zsh/.zshrcf')
+#     echo $grepResult
 
-    if [ ${#grepResult} == 0 ]; then
-        echoCo "echo 'source ~/.zsh/.zshrcf' >> ~/.zshrc"
-                echo 'source ~/.zsh/.zshrcf' >> ~/.zshrc
-        echoCo "/bin/zsh -c 'source ~/.zshrc'"
-                /bin/zsh -c 'source ~/.zshrc'
-    fi
+#     if [ ${#grepResult} == 0 ]; then
+#         echoCo "echo 'source ~/.zsh/.zshrcf' >> ~/.zshrc"
+#                 echo 'source ~/.zsh/.zshrcf' >> ~/.zshrc
+#         echoCo "/bin/zsh -c 'source ~/.zshrc'"
+#                 /bin/zsh -c 'source ~/.zshrc'
+#     fi
 
-    echoCo "cat ~/.zshrc | grep '^source ~/.zsh/.zshrcf'"
-            cat ~/.zshrc | grep '^source ~/.zsh/.zshrcf'
-fi
+#     echoCo "cat ~/.zshrc | grep '^source ~/.zsh/.zshrcf'"
+#             cat ~/.zshrc | grep '^source ~/.zsh/.zshrcf'
+# fi
+
+
+echoCo "diffmulfiles ~/.zsh/.zshrc ~/.zshrc"
+        diffmulfiles ~/.zsh/.zshrc ~/.zshrc
+
+echo   "cp           ~/.zsh/.zshrc ~/.zshrc    ?"

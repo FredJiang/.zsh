@@ -4,3 +4,6 @@
 [submodule "mypackages/autojump"]
 	path = mypackages/autojump
 	url = https://github.com/wting/autojump.git
+[submodule "mypackages/maven-bash-completion"]
+	path = mypackages/maven-bash-completion
+	url = https://github.com/juven/maven-bash-completion.git
