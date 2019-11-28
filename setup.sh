@@ -157,4 +157,5 @@ install_autojump
 echoCo "diffmulfiles ~/.zsh/.zshrc ~/.zshrc"
         diffmulfiles ~/.zsh/.zshrc ~/.zshrc
 
-echo   "cp           ~/.zsh/.zshrc ~/.zshrc    ?"
+echo   "run me"
+echo   "cp           ~/.zsh/.zshrc ~/.zshrc"

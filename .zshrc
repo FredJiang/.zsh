@@ -5,15 +5,15 @@ source ~/.zsh/mypackages/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-# antigen bundle heroku
-# antigen bundle pip
-# antigen bundle lein
 # antigen bundle command-not-found
-antigen bundle man
-antigen bundle colorize
-antigen bundle colored-man-pages
+# antigen bundle heroku
+# antigen bundle lein
+# antigen bundle pip
 antigen bundle autojump
+antigen bundle colored-man-pages
+antigen bundle colorize
+antigen bundle git
+antigen bundle man
 antigen bundle mvn
 
 # Syntax highlighting bundle.
@@ -24,6 +24,8 @@ antigen theme robbyrussell
 
 # Tell Antigen that you're done.
 antigen apply
+
+plugins=(autojump colored-man-pages colorize git man mvn)
 #↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
 
 # If you come from bash you might have to change your $PATH.
@@ -143,7 +145,7 @@ fi
 
 . ~/.myshell/mypackages/hhighlighter/h.sh # yum install ack
 source ~/.bash_profile
-. ~/.zsh/mypackages/maven-bash-completion/bash_completion.bash
+# . ~/.zsh/mypackages/maven-bash-completion/bash_completion.bash # 只支持 bash
 source ~/.tmuxinator.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
